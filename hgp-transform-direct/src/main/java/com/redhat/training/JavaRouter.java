@@ -7,10 +7,8 @@ import javax.jms.Message;
 import javax.jms.MessageConsumer;
 import javax.jms.ObjectMessage;
 import javax.jms.Session;
-import javax.jms.TextMessage;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
-import org.apache.activemq.network.jms.JmsConnector;
 import org.apache.camel.CamelContext;
 import org.apache.camel.ProducerTemplate;
 import org.apache.camel.component.jms.JmsComponent;
@@ -18,7 +16,7 @@ import org.apache.camel.impl.DefaultCamelContext;
 
 public class JavaRouter {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		CamelContext context = new DefaultCamelContext();
 		ConnectionFactory connectionFactory = new ActiveMQConnectionFactory("vm://localhost");
 		context.addComponent("jms", JmsComponent.jmsComponentAutoAcknowledge(connectionFactory));
